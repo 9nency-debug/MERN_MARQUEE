@@ -326,3 +326,32 @@ function greet() {
 - Array
 - Object
 - Function
+
+---
+
+# Installation of Node.js
+
+Download:
+https://nodejs.org/en/download
+
+---
+
+# Verify Installation
+
+```bash
+node -v
+```
+
+---
+
+# Run JavaScript
+
+```bash
+node <file_name>.js
+```
+
+Example:
+
+```bash
+node index.js
+```
