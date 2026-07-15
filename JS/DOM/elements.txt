@@ -1,0 +1,15 @@
+14/7/26
+
+// getelementsbyid
+// getelementsbyclassname
+// getelementsbytagname
+// getelementsbyqueryselector
+// getelementsbyqueryselectorall
+//setAtrribute: source
+//createlements
+//appendmethod: adding child elements to parent (single to multiple)
+//innertext: to assign innerText
+//interHTML
+//append: 
+//appendChild //single elements can only add
+

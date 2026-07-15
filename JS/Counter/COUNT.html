@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    <h1 id="display">0</h1>
+    <button onclick="incFunction()">Increase</button>
+    <button id="dec">Decrese</button>
+</body>
+<script>
+    //addEventListener
+    let buttons = document.getElementsByTagName("button");
+    let display = document.getElementById("display");
+    let count = 0;
+    function incFunction() {
+        count++;
+        display.innerText = count;
+        console.log("increase", count);
+    }
+    //either make a function and call here or directly do it here
+    //.addEventListener("event", function)
+    buttons[1].addEventListener("click", () => {
+        // if(count < 1) return;
+        count--;
+        display.innerText = count;
+        console.log("decrese", count);
+    })
+
+</script>
+</html>

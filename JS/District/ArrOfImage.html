@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .movie-card {
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .movie-card h2, .movie-card p {
+            padding: 0 10px;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+<script>
+    //make an array of object:-> length 4 
+    let data = [
+        {
+            img: "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
+            title: "Dhamaal 4",
+            details: "UA13+ | Hindi"
+        },
+        {
+            img: "https://cdn.district.in/movies-assets/images/cinema/Alpha-062ca980-6ef1-11f1-b0b5-2f04c00aa32d.jpg",
+            title: "Alpha", // Fixed titles to match your commented goal
+            details: "UA16+ | Hindi"
+        },
+        {
+            img: "https://cdn.district.in/movies-assets/images/cinema/17811549132914624-0667fb20-6dfc-11f1-9a9b-71d1ad62c0c2.jpg",
+            title: "Welcome to the Jungle",
+            details: "UA16+ | Hindi"
+        },
+        {
+            img: "https://cdn.district.in/movies-assets/images/cinema/2_Poster%20(1)-2e3b7180-6551-11f1-bfcd-593dd3bd3d89.jpg",
+            title: "Main Vaapas Aaunga",
+            details: "UA16+ | Hindi"
+        }
+    ];
+
+    // 1. Create the parent container ONCE outside the loop so it doesn't duplicate
+    let parent = document.createElement("div");
+    parent.setAttribute("id", "container");
+    document.body.appendChild(parent); // Put the master grid container onto the page
+
+    // 2. Define the Card Builder function independently
+    function createCard(image, title, paragraph) {
+        let card = document.createElement("div");
+        card.className = "movie-card"; // Class name used instead of duplicate IDs
+        let img = document.createElement("img");
+        let h2 = document.createElement("h2");
+        let p = document.createElement("p");
+        img.setAttribute('src', image);
+        h2.innerText = title;
+        p.innerText = paragraph;
+        card.append(img, h2, p);
+        
+        // Append the card into the single parent container instead of document.body
+        parent.appendChild(card); 
+    }
+
+    // 3. Loop through your data array using a normal function and invoke createCard
+    data.forEach((movie) => {
+        createCard(movie.img, movie.title, movie.details);
+    });
+    console.log(data);
+</script>
+</html>
