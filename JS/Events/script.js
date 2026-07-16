@@ -35,5 +35,42 @@ input.addEventListener("keydown", (event) => {
     }
 });
 
+//keyup: when you release the key | single time use
+input.addEventListener("keyup", (event) => {
+    console.log(event.key);
+    if(event.key == "Enter") {
+        console.log("Searching...");
+    }
+});
+
+//How to read values from the input:-> input event
+input.addEventListener("input", (event) => {
+    // console.log(event);
+    console.log(event.target.value);
+});
+
+//change
+input.addEventListener("change", (event) => {
+    console.log(event.target.value);
+});
+
+//Read->dropdownlist
+let select = document.getElementById("select");
+select.addEventListener("change", (event) => {
+    console.log(event.target.value);
+});
+
+//rest 2 methods will work on window object
+//resize 
+window.addEventListener("resize", () => {
+    console.log("Resized Called");
+});
+
+//scroll
+window.addEventListener("scroll", () => {
+    console.log("scroll called");
+});
+
+//input,change,dbl,click,mousein,mouseout;> MOST IMP
 //keypress : !use
 
