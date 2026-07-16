@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag&Drop</title>
+    <style>
+        .item{
+            height: 50px;
+            width: 50px;
+            background-color: #dca0ff;
+            border: 2px solid rgb(230, 210, 210);
+        }
+
+        #container {
+            height: 300px;
+            width: 300px;
+            background-color: #ff6b6b;
+            border: 2px solid rgb(255, 151, 227);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="item"></div>
+        <div class="item" draggable="true">A</div>
+        <div class="item" draggable="true">B</div>
+        <div class="item" draggable="true">C</div>
+    </div>
+    <div id="container"></div>
+</body>
+<script src="script.js"></script>
+</html>
