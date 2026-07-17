@@ -6,7 +6,7 @@
     <title>Counter</title>
 </head>
 <body>
-    <h1 id="display">0</h1>
+    <h1 id="display"></h1>
     <button onclick="incFunction()">Increase</button>
     <button id="dec">Decrese</button>
 </body>
@@ -14,20 +14,35 @@
     //addEventListener
     let buttons = document.getElementsByTagName("button");
     let display = document.getElementById("display");
-    let count = 0;
+    // let count = 0;
+    //to take input from the user
+    //set -> take -> name + value
+    //local storage me JSON(obj) format me data store hote hai -> key and value in string
+    // localStorage.setItem("count", 0);//neve set this out of function -> use when user clinks on clink btn tab hi localstorage me value store honi chahiye.
+    // get Intem setIntem => work -> explore 
+    //getitem takes only one value that is key, returns the data inside of key
+    let count = localStorage.getItem("count") | 0;
+    display.innerText = count;
+    console.log(count);
     function incFunction() {
         count++;
+        localStorage.setItem("count", count);
         display.innerText = count;
         console.log("increase", count);
     }
     //either make a function and call here or directly do it here
     //.addEventListener("event", function)
+
     buttons[1].addEventListener("click", () => {
         // if(count < 1) return;
         count--;
+        localStorage.setItem("count", count);
         display.innerText = count;
         console.log("decrese", count);
     })
-
+//cache
+//sessionStorage: jab tak tab is open storage ✅, jab bandh hoga storage erase
+//LocalStorage: system se delete LocalStorage delete | LocalStorage ❌ accisible to everyone
 </script>
 </html>
+
