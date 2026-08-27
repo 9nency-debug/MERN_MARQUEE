@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator Grid Area</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Segoe UI',sans-serif;
+    }
+
+    body{
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(135deg,#1d1f27,#34384d);
+    }
+
+    .outer{
+        background:#20232d;
+        padding:22px;
+        border-radius:28px;
+        box-shadow:
+            0 20px 40px rgba(0,0,0,.45),
+            inset 0 1px 0 rgba(255,255,255,.05);
+    }
+
+    .container{
+        display:grid;
+        grid-template-columns:repeat(4,75px);
+        grid-template-rows:110px repeat(5,70px);
+        gap:10px;
+
+        grid-template-areas:
+        "display display display display"
+        "plus minus multiply divide"
+        "seven eight nine equal"
+        "four five six equal"
+        "one two three equal"
+        "zero dot ac equal";
+    }
+
+    /* Display */
+
+    .item1{
+        grid-area:display;
+        background:#37474F;
+        border:none;
+        border-radius:12px;
+        padding:10px;
+        display:flex;
+        align-items:center;
+    }
+
+    .item1 input{
+        width:100%;
+        height:100%;
+        background:transparent;
+        border:none;
+        outline:none;
+        color:white;
+        font-size:48px;
+        text-align:right;
+        padding-right:10px;
+        caret-color:white;
+    }
+
+    /* Common Buttons */
+
+    .container > div:not(.item1){
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        border-radius:18px;
+        cursor:pointer;
+
+        font-size:26px;
+        font-weight:600;
+
+        transition:.18s;
+        user-select:none;
+    }
+
+    .container > div:not(.item1):hover{
+        transform:translateY(-3px);
+    }
+
+    .container > div:not(.item1):active{
+        transform:scale(.95);
+    }
+
+    /* Number Buttons */
+
+    .item6,
+    .item7,
+    .item8,
+    .item9,
+    .item10,
+    .item11,
+    .item12,
+    .item13,
+    .item14,
+    .item15,
+    .item16{
+        background:#2d3445;
+        color:white;
+        box-shadow:0 4px 10px rgba(0,0,0,.25);
+    }
+
+    .item6:hover,
+    .item7:hover,
+    .item8:hover,
+    .item9:hover,
+    .item10:hover,
+    .item11:hover,
+    .item12:hover,
+    .item13:hover,
+    .item14:hover,
+    .item15:hover,
+    .item16:hover{
+        background:#3b4459;
+    }
+
+    /* Operators */
+
+    .item2,
+    .item3,
+    .item4,
+    .item5{
+        background:#ff9800;
+        color:white;
+        box-shadow:0 5px 15px rgba(255,152,0,.35);
+    }
+
+    .item2:hover,
+    .item3:hover,
+    .item4:hover,
+    .item5:hover{
+        background:#ffad33;
+    }
+
+    /* AC */
+
+    .item17{
+        background:#ef5350;
+        color:white;
+        box-shadow:0 5px 15px rgba(239,83,80,.35);
+    }
+
+    .item17:hover{
+        background:#f66865;
+    }
+
+    /* Equal */
+
+    .item18{
+        grid-area:equal;
+        background:linear-gradient(180deg,#00d26a,#00b85d);
+        color:white;
+        font-size:34px;
+        border-radius:20px;
+        box-shadow:0 8px 20px rgba(0,210,106,.35);
+    }
+
+    .item18:hover{
+        background:linear-gradient(180deg,#00e673,#00c965);
+    }
+</style>
+</head>
+<body>
+
+<div class="outer">
+<div class="container">
+
+    <!-- <div class="item1">0</div> -->
+<div class="item1">
+    <input type="text" id="display" value="0" autocomplete="off">
+</div>
+
+    <!-- Operators -->
+    <div class="item2 button">+</div>
+    <div class="item3 button">−</div>
+    <div class="item4 button">×</div>
+    <div class="item5 button">÷</div>
+    <div class="item4 button">C</div>
+    <div class="item5 button">AC</div>
+
+    <!-- Numbers -->
+    <div class="item6">7</div>
+    <div class="item7">8</div>
+    <div class="item8">9</div>
+
+    <div class="item9">4</div>
+    <div class="item10">5</div>
+    <div class="item11">6</div>
+
+    <div class="item12">1</div>
+    <div class="item13">2</div>
+    <div class="item14">3</div>
+
+    <div class="item15">0</div>
+    <div class="item16">.</div>
+    <div class="item17">AC</div>
+
+    <div class="item18">=</div>
+
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box; /* box's size : 500px; shayad fixed rakhta hai */
+        }
+        
+        html, body {
+          width: 100%;
+          height: 100%;
+        }
+        
+        #carousel {
+            background-color: rgb(255, 130, 130);
+            overflow: hidden;
+            position:relative;
+        }
+
+        .box > div {
+            height: 300px;
+            border: 2px solid;
+            width: 100%;
+            background-color: #bf83ff;
+            flex-shrink: 0;
+            font-size: 30px;
+        }
+
+        .box {
+            display: flex;
+            /* if website has horizontal }-> X responsive  */
+            transition-duration: 1s;
+        }
+
+        .next, .prev {
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            padding: 5px 10px;
+            transform: translateY(-50%);
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        /* 
+        next -> top 50% + right-> 0;
+        */
+
+        /* .box {
+            height: 500px;
+            width: 100%;
+            background-color: #0074af;
+        } */
+
+        #dots {
+            display: flex;
+            justify-content: center;
+            font-size: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="carousel">
+        <div class="box">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+        <button class="next" type="submit">next</button>
+        <button class="prev" type="submit">prev</button>
+        <div id = "dots">
+            <h1>.</h1>
+            <h1>.</h1>
+            <h1>.</h1>
+        </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+     <script>
+        let next = document.querySelector(".next");
+        let prev = document.querySelector(".prev");
+        let box = document.querySelector(".box");
+        let dots = document.querySelectorAll("#dots>h1");
+        dots[0].style.color = "seagreen";
+        let index = 0;
+
+        next.addEventListener("click", () =>  {
+            // console.log("next");
+            index++;
+            if(index >=3) {
+                index = 0;
+            }
+            box.style.transform = `translate(-${index * 100}%)`;
+            console.log(index);
+            dots.forEach((element, i) => {
+                if(index == i) {
+                    dots[i].style.color = "white";
+                } else {
+                    dots[i].style.color = "black";
+                }
+            })
+        });
+
+        prev.addEventListener("click", () =>  {
+            // console.log("next");
+            index--;
+            if(index < 0) {
+                index = 2;
+            }
+            box.style.transform = `translate(-${index * 100}%)`;
+            console.log(index);
+
+            // if you give +ve :
+            //     box.style.transform = `translate(${index * 100}%)`;
+            // so it morevs left
+            // 
+        });
+
+        let count = 0;
+        setInterval(() => {
+            // count++;
+            // console.log(count);
+            index++;
+            if(index >=3) {
+                index = 0;
+            }
+            box.style.transform = `translate(-${index * 100}%)`;
+            console.log(index);
+            dots.forEach((element, i) => {
+                if(index == i) {
+                    dots[i].style.color = "white";
+                } else {
+                    dots[i].style.color = "black";
+                }
+            })
+        }, 2000);
+
+     </script>
+</body>
+</html>
