@@ -477,3 +477,8 @@ button.addEventListener("click", () => {
 // ============================
 
 startGame();
+
+
+
+
+
