@@ -114,3 +114,17 @@ async function handleAsync() {
 
 //based on this; Design a promise for talking a leave from the college }-> letter GOES FROM THE STUDENT, AND send to the mft - if promise fullfilled then letter reaches to the HOD and if HOD approved it then, print Leave approved or not
 
+// ___
+
+// 1/09/2026
+console.log("A");
+setTimeout(() => {
+    console.log("B");
+}, 3000);
+
+setTimeout(() => {
+    console.log("C")
+}, 2000);
+
+// o/p: A C B
+
