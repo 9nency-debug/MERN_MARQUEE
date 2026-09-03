@@ -1,0 +1,10 @@
+        async function getQuotes() {
+            let res = await fetch("https://dummyjson.com/quotes");
+            let data = await res.json();
+            let index = Math.floor(Math.random() * 30);
+            // because there are 30 quote available in API
+            console.log(index);
+            console.log(data.quote);
+            // console.log(res);
+        }
+        getQuotes();

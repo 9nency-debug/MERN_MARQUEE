@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote</title>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        html, body {
+          width: 100%;
+          height: 100%;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #quoteContainer {
+            margin: 30px auto;
+            padding: 25px;
+            max-width: 600px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        #quote {
+            font-size: 22px;
+        }
+
+        #author {
+            font-size: 18px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="reloadBtn">Reload</button>
+    <div id="quoteContainer">
+        <p id="quote">Click Reload to get a quote</p>
+        <p id="author"></p>
+    </div>
+    <script>
+        const reloadBtn = document.getElementById("reloadBtn");
+        const quote = document.getElementById("quote");
+        const author = document.getElementById("author");
+        let quotes = [];
+        fetch("https://dummyjson.com/quotes")
+            .then(response => response.json())
+            .then(data => {
+                quotes = data.quotes;
+            })
+            .catch(error => {
+                quote.innerText = "Something went wrong.";
+                console.log(error);
+            });
+        reloadBtn.addEventListener("click", function () {
+            if (quotes.length === 0) {
+                quote.innerText = "Quotes are still loading...";
+                return;
+            }
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+            quote.innerText = `"${randomQuote.quote}"`;
+            author.innerText = `- ${randomQuote.author}`;
+
+        });
+        // async function getQuotes() {
+        //     let res = await fetch("https://dummyjson.com/quotes");
+        //     let data = await res.json();
+        //     console.log(res);
+        // }
+        // getQuotes();
+    </script>
+</body>
+</html>
