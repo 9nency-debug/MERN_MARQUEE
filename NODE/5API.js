@@ -1,3 +1,16 @@
+/*
+    Task:
+    - Create 5 APIs:
+      /first-name
+      /last-name
+      /full-name
+      /college-name
+      /dob
+
+    - Return Page Not Found for any other API.
+    - Run the server on port 8080.
+*/
+
 const http = require("http");
 const server = http.createServer((request, response) => {
     console.log(request.url);
