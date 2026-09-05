@@ -782,6 +782,7 @@ dhavaldabhi@Pranshiv API % node day2.js
 */
 
 /* POST API */
+
 fetch("https://dummyjson.com/products/add", {
     method: "POST",
     headers: {
