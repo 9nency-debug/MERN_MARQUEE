@@ -7,7 +7,7 @@ mkdir('Cources', (err) => {
     writeFile('Courses/Java', '', (err) => {});
     writeFile('Courses/MERN STACK', '', (err) => {});
     writeFile('Cources/AI Agents', '', (err) => {});
-    writeFile('Cources/Python','', (err) => {});
+    writeFile('Cources/Python', '' , (err) => {});
     writeFile('Cources/DSA(Alpha)', '', (err) => {});
     console.log('All the operations have been done!');
 });
@@ -28,3 +28,4 @@ mkdir('Courses', (err) => {
     console.log('Courses created');
 });
 */
+
